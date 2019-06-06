@@ -1,10 +1,11 @@
 #include "LongestPalindromeSubstring.hpp"
 
 int main(int argc, char* argv[]) {
+  spdlog::set_pattern("[%^%l%$] %v");
   Solution test;
-  string input;
-  getline(cin, input);
-  cout << "input string: " << input << endl;
-  string output  = test.longestPalindrome(input);
-  cout << "output substring: " << output << endl;
+  std::string input;
+  getline(std::cin, input);
+  spdlog::info("input string: {}", input);
+  std::string output  = test.longestPalindrome(input);
+  spdlog::info("output substring: {}", output);
 }

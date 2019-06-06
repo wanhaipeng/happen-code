@@ -7,18 +7,14 @@
 #define LONGESTPALINDROMESUBSTRING_HPP_
 #include <iostream>
 #include <string>
-using std::cin;
-using std::cout;
-using std::endl;
-using std::string;
-using std::getline;
+#include "extend.hpp"
 
 class Solution {
 private:
-  string output_substr;
+  std::string output_substr;
 public:
   Solution() = default;
-  string longestPalindrome(string s) {
+  std::string longestPalindrome(std::string s) {
     int input_str_size = s.size();
     if (input_str_size == 0) {
       output_substr = ""; 
