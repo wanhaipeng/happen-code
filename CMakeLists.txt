@@ -12,5 +12,6 @@ set(CMAKE_MODULE_PATH           ${CMAKE_SOURCE_DIR}/cmake)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # build executable
-add_executable(test_LongestPalindromeSubstring ${PROJECT_SOURCE_DIR}/src/test_LongestPalindromeSubstring.cpp)
 add_executable(test_spdlog ${PROJECT_SOURCE_DIR}/src/test_spdlog.cpp)
+add_executable(test_LongestPalindromeSubstring ${PROJECT_SOURCE_DIR}/src/test_LongestPalindromeSubstring.cpp)
+add_executable(test_MaxSubarray ${CMAKE_SOURCE_DIR}/src/test_MaxSubarray.cpp)
