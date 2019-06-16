@@ -10,3 +10,5 @@ CTestTestfile.cmake
 .vscode
 .DS_Store
 build
+out
+.vs
