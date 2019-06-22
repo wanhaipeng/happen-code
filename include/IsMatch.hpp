@@ -1,4 +1,4 @@
-/** @file    IsMatch.cpp
+/** @file    IsMatch.hpp
  *  @brief   LeetCode problems 10:  IsMatch implementation
  *  @author  ppeng
  *  @date    2019-06-18

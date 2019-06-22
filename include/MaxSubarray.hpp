@@ -1,4 +1,4 @@
-/** @file    MaxSubarray.cpp
+/** @file    MaxSubarray.hpp
  *  @brief   LeetCode problems 53: MaxSubarray implementation
  *  @author  ppeng
  *  @date    2019-06-06

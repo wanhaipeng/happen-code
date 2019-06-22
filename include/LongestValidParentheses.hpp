@@ -1,4 +1,4 @@
-/** @file    LongestValidParentheses.cpp
+/** @file    LongestValidParentheses.hpp
  *  @brief   LeetCode problems 32:  LongestValidParentheses implementation
  *  @author  ppeng
  *  @date    2019-06-17

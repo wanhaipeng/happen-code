@@ -1,4 +1,4 @@
-/** @file    UniquePathsWithObstacles.cpp
+/** @file    UniquePathsWithObstacles.hpp
  *  @brief   LeetCode problems 63: UniquePathsWithObstacles implementation
  *  @author  ppeng
  *  @date    2019-06-12

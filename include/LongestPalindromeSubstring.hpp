@@ -1,10 +1,9 @@
-/** @file    LongestPalindromeSubstring.cpp
+/** @file    LongestPalindromeSubstring.hpp
  *  @brief   LeetCode problems 5: LongestPalindromeSubstring implementation
  *  @author  ppeng
  *  @date    2019-05-08
  */
-#ifndef LONGESTPALINDROMESUBSTRING_HPP_
-#define LONGESTPALINDROMESUBSTRING_HPP_
+#pragma once
 #include <iostream>
 #include <string>
 #include "extend.hpp"
@@ -48,4 +47,3 @@ public:
     return output_substr;
   }
 };
-#endif

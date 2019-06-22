@@ -1,4 +1,4 @@
-/** @file    UniquePaths.cpp
+/** @file    UniquePaths.hpp
  *  @brief   LeetCode problems 62: UniquePaths implementation
  *  @author  ppeng
  *  @date    2019-06-11

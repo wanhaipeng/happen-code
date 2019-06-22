@@ -1,4 +1,4 @@
-/** @file    MinPathSum.cpp
+/** @file    MinPathSum.hpp
  *  @brief   LeetCode problems 64: MinPathSum implementation
  *  @author  ppeng
  *  @date    2019-06-15
