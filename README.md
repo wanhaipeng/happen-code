@@ -1,7 +1,7 @@
 # PPeng Code
 > Get into Leetcode~
 
-## **动态规划**
+## **1. 动态规划**
 ### **problem 5: longestPalindromeSubstring**
 > 动态规划， 此处没有用动态规划解决
 
