@@ -9,6 +9,7 @@ compile_commands.json
 CTestTestfile.cmake
 .vscode
 .DS_Store
-build
+build/
 out
 .vs
+install/
