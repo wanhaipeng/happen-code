@@ -1,5 +1,5 @@
 /**
- *  @file    IsvalidBST.cpp
+ *  @file    IsvalidBST.hpp
  *  @brief   LeetCode problems 98: isvalid binray search tree implementation
  *  @author  ppeng
  *  @date    2019-11-05
