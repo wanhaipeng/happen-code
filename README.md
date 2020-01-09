@@ -1,19 +1,34 @@
 # happen-code
 > Get into Leetcode~
 
-[toc]
+## Code List
+1. [动态规划](#动态规划)
+    * [problem5-longestPalindromeSubstring](#problem5-longestPalindromeSubstring)
+    * [problem53-Maxsubarray](#problem53-Maxsubarray)
+    * [problem62-UniquePaths](#problem62-UniquePaths)
+    * [problem63-UniquePathsWithObstacles](#problem63-UniquePathsWithObstacles)
+    * [problem64-MinPathSum](#problem64-MinPathSum)
+    * [problem70-ClimbStairs](#problem70-ClimbStairs)
+    * [problem32-LongestValidParentheses](#problem32-LongestValidParentheses)
+    * [problem10-IsMatch](#problem10-IsMatch)
+    * [problem72-MinDistance](#problem72-MinDistance)
+2. [深度优先搜索](#深度优先搜索)
+    * [problem98-isValidBST](#problem98-isValidBST)
+    * [problem99-recoverTree](#problem99-recoverTree)
+    * [problem100-isSameTree](#problem100-isSameTree)
+    * [problem101-isSymmetric](#problem101-isSymmetric)
 
-## **1. 动态规划**
+## 动态规划
 > 动态规划（英语：Dynamic programming，简称 DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。动态规划常常适用于有重叠子问题和最优子结构性质的问题，动态规划方法所耗时间往往远少于朴素解法。动态规划背后的基本思想非常简单。大致上，若要解一个给定问题，我们需要解其不同部分（即子问题），再根据子问题的解以得出原问题的解。通常许多子问题非常相似，为此动态规划法试图仅仅解决每个子问题一次，从而减少计算量：一旦某个给定子问题的解已经算出，则将其记忆化存储，以便下次需要同一个子问题解之时直接查表。这种做法在重复子问题的数目关于输入的规模呈指数增长时特别有用。
 
-### **problem 5: longestPalindromeSubstring**
+### problem5-longestPalindromeSubstring
 > 动态规划， 此处没有用动态规划解决
 
 * 当前解法: 中心扩展法，回文字符串两侧互为镜像可以从中心展开
   * 一共有$2n-1$个中心点，需要考虑字符串长度的奇偶性
   * 时间复杂度 $O\left(n^{2}\right)$ , 空间复杂度 $O\left(1\right)$
 
-### **problem 53: Maxsubarray**
+### problem53-Maxsubarray
 > 动态规划
 * DP算法的主要解题步骤，通过把原问题分解为相对简单的子问题的方式来求解复杂问题的方法，DP使用于有重叠子问题和最优子结构性质的问题
   * 确定问题具有最优子结构性质
@@ -25,7 +40,7 @@
   * 构造最优值的递归关系表达式: $\mathrm{dp}[i]=\max (\mathrm{dp}[\mathrm{i}-1]+ nums[i], nums[i])$, 并修改当前子序列的head的指向；
   * 最优值算法描述&&构造最优解: 根据数组前三项总结出以当前项为尾节点的子序列的最大序列和，同时需要记录子序列头结点的位置; 计算出dp数组所有的最大子序列和然后遍历一遍求出最优解，同时还可以返回子序列的position;
 
-### **problem 62: UniquePaths**
+### problem62-UniquePaths
 > 动态规划
 * 当前解法: 动态规划算法，定义一个最优解数组paths来记录到达当前坐标$(i,j)$的路径数目
   * 确定问题具有最优子结构性质: 在这个题目的场景中到达坐标$(i,j)$的路径数可以通过它上和左边的坐标点路径数来确定；
@@ -33,7 +48,7 @@
   * 最优值算法描述: 从坐标 $(0,0)$ 开始依次遍历每一个坐标并计算其路径数，需要注意的是由于只能向右和向下移动，导致在上边界和左边界的路径数目受到限制产生边界条件需要单独计算；
   * 构造最优解: 当整个地图的坐标点都被遍历一遍后，到达各坐标点的路径数也确定了，取 $paths[n-1][m-1]$ 即为到达标记处的路径数
 
-### **problem 63: UniquePathsWithObstacles**
+### problem63-UniquePathsWithObstacles
 > 动态规划，在62题路径问题的基础上引入路障增加难度
 * 当前解法: 动态规划算法，定义一个最优解数组paths来记录到达当前坐标$(i,j)$的路径数目，解法基本思路同62题
   * 确定问题具有最优子结构性质: 在这个题目的场景中到达坐标$(i,j)$的路径数可以通过它上和左边的坐标点路径数来确定；
@@ -41,17 +56,17 @@
   * 最优值算法描述: 大体思路和62相似，但是引入了路障map，在计算 $(i,j)$ 的路径数时需要加入是否有路障的判断，该点有路障则到达该点的路径数为0；
   * 构造最优解: 遍历整个map后，paths存储为能到达的每个点的最优路径数，更加实际返回坐标获取最优解；
 
-### **problem 64: MinPathSum**
+### problem64-MinPathSum
 > 动态规划，在之前求解路径的基础上给每条路径加上了权重，求权重最小的路径
 * 当前解法: 动态规划算法，定义dp数组来存储到达当前点 $(i,j)$ 的最小路径和，解法和前两题相同
   * 构造最优值的递归关系表达式: $dp[i][j]=min(dp[i-1][j], dp[i][j-1]) + grid[i][j]$
 
-### **problem 70: ClimbStairs**
+### problem70-ClimbStairs
 > 动态规划，之前的场景都是在二维的map，这次换成一维的path，集体思路还是相似
 * 当前解法：动态规划算法，定义dp数组存储到达层 $i$ 的方法数，$dp[n-1]$ 即达到顶层的方法数
   * 构造最优值的递归关系表达式：$dp[i]=dp[i-1] + dp[i-2] (i >= 2)$
 
-### **problem 32: LongestValidParentheses**
+### problem32-LongestValidParentheses
 > 动态规划, 不过目前题目的解法没有用到动态规划
 * 当前解法: 类似于遍历方法，定义数组dp来存储以$i$起始的有效括号长度，用$(length, end + 1)$表示有效括号长度以及该子串结尾的下一个位置，在没有有效括号的情况下才会依次遍历字符串
   * 确定每一对数的值: 输入子串的$offset: pos$以及对应的$string$: substr，通过设置$checkpoint$来记录当前的组成的括号是否有效；
@@ -60,7 +75,7 @@
   * 如果以$i$起始找到有效字符串，那么之后的括号匹配以$i+length$起始，否则以$i+1$起始
 * 动态规划解法: 
 
-### **problem 10: IsMatch**
+### problem10-IsMatch
 > 动态规划，参考了别人python代码动态规划解法的思路(难度较大，不是很好理解部分递归关系表达式)
 * 当前解法：动态规划解法，定义数组 $dp[i][j]$ 表text string从i到末尾，pattern从j到末尾，此时两个字符串是否匹配
   - 确定问题具有最优子结构性质: $dp[i][j]$ 的值可以通过字符 $i,j,j+1$ 以及 状态$dp[i+1][j+1], dp[i][j+2],dp[i+1][j]$综合判断(理解起来可能比较复杂...)
@@ -72,15 +87,15 @@
   - 最优值算法描述: 本题动态规划可以由底至顶计算也可以由顶至底计算，主分支通过x，y，z的值进行分割；
   - 构造最优解：最后$dp[0][0]$ 存储的状态就是p是否能匹配为s
 
-### **problem 72: MinDistance**
+### problem72-MinDistance
 > 给定word1和word2，计算从word1到word2的最小编辑距离
 
 * 默认条件: 可以对单词进行插入、删除、替换三种操作
 
-## **2. 深度优先搜索**
+## 深度优先搜索
 > 深度优先搜索算法（英语：Depth-First-Search，DFS）是一种用于遍历或搜索树或图的算法。沿着树的深度遍历树的节点，尽可能深的搜索树的分支。当节点v的所在边都己被探寻过，搜索将回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止。属于盲目搜索。深度优先搜索是图论中的经典算法，利用深度优先搜索算法可以产生目标图的相应拓扑排序表，利用拓扑排序表可以方便的解决很多相关的图论问题，如最大路径问题等等。
 
-### **problem 98: isValidBST**
+### problem98-isValidBST
 > 判断二叉树是否为有效的二叉搜索树
 
 * 二叉搜索树特征: 节点的左子树只包含小于当前节点的数；节点的右子树只包含大于当前节点的数；所有左子树和右子树自身必须是二叉搜索树
@@ -88,7 +103,7 @@
   - 将各节点压入栈中，保证节点取出的顺序是中序遍历顺序，对比当前出栈节点val和前一个出栈节点val值；
   - 重点是按照怎么样的顺序将节点压入栈中和出栈(先将各个节点和左子树的左节点压入栈中，然后再压入出栈节点的右子树节点)
 
-### **problem 99: recoverTree**
+### problem99-recoverTree
 > 二叉搜索树有两个节点被错误交换，在改变树的结构恢复BST
 
 * 当前解法: 中序遍历二叉树，记录位置错误的两个节点的地址，交换其val，空间复杂度O(n), 待优化
@@ -96,7 +111,7 @@
   - 第二个节点出现在最后一次出现相邻节点逆序的当前节点；
   - 遍历整个二叉树后，交换两个节点的val，在不改变树结构的情况下完成BST的恢复；
 
-### **problem 100: isSameTree**
+### problem100-isSameTree
 > 判断给定的两个二叉树是否相同
 
 * 当前解法: 深度优先搜索，在二叉树中就是先序遍历，时间复杂度`O(n)`
@@ -104,7 +119,7 @@
   - 当两棵树其中有一个为`null`返回`false`
   - 当两棵树当前节点值不相同时候返回`false`, 想同的话递归处理左子树和右子树
 
-### **problem 101: isSymmetric**
+### problem101-isSymmetric
 > 判断一个二叉树是否镜像对称
 
 * 当前解法: 递归解法，时间复杂度`O(n)`
