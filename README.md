@@ -17,6 +17,11 @@
     * [problem99-recoverTree](#problem99-recoverTree)
     * [problem100-isSameTree](#problem100-isSameTree)
     * [problem101-isSymmetric](#problem101-isSymmetric)
+    * [problem104-maxDepth](#problem104-maxDepth)
+    * [problem105-buildTree](#problem105-buildTree)
+    * [problem106-buildTree_1](#problem106-buildTree_1)
+    * [problem107-levelOrderBottom](#problem107-levelOrderBottom)
+    * [problem108-sortedarraytoBST](#problem108-sortedarraytoBST)
 
 ## 动态规划
 > 动态规划（英语：Dynamic programming，简称 DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。动态规划常常适用于有重叠子问题和最优子结构性质的问题，动态规划方法所耗时间往往远少于朴素解法。动态规划背后的基本思想非常简单。大致上，若要解一个给定问题，我们需要解其不同部分（即子问题），再根据子问题的解以得出原问题的解。通常许多子问题非常相似，为此动态规划法试图仅仅解决每个子问题一次，从而减少计算量：一旦某个给定子问题的解已经算出，则将其记忆化存储，以便下次需要同一个子问题解之时直接查表。这种做法在重复子问题的数目关于输入的规模呈指数增长时特别有用。
@@ -125,3 +130,41 @@
 * 当前解法: 递归解法，时间复杂度`O(n)`
   - 镜像递归遍历二叉树，判断当前节点是否相同(实际上遍历了两次输入的二叉树，有重复计算)
 * 迭代解法: 思路相仿，镜像地将二叉树的节点插入队列，从队列中连续取出两个节点判断其是否相同
+
+### problem104-maxDepth
+> 计算二叉树的最大深度
+
+* 当前解法: 递归解法，时间复杂度`O(n)`
+  - 递归遍历二叉树，当前节点的最大深度`depthNow=max(depth_left, depth_right)`
+
+### problem105-buildTree
+> 通过二叉树的先序遍历序列和中序遍历序列恢复二叉树
+
+* 当前解法: 深度优先搜索递归解法，时间复杂度`O(n)`，空间复杂度`O(n)`
+  - 恢复二叉数节点的顺序按照先序遍历的顺序进
+  - 核心思想是利用先序遍历序列当前节点去切分中序遍历序列，找到当前节点在中序遍历序列中的位置，左侧所有节点为左子树节点，右侧所有节点为右子树节点，一次逐层递归
+
+### problem106-buildTree_1
+> 通过二叉树的中序遍历序列和后序遍历序列恢复二叉树
+
+* 当前解法: 深度优先搜索递归解法
+  - 在后序遍历序列中找到根节点(最后一个节点)
+  - 在中序遍历序列中找到根节点的位置`std::find`、`std::distance`，将中序遍历序列分为左子树和右子树
+  - 确定左右子树在中序序列中的左右边界
+  - 递归构造左子树和右子树
+
+### problem107-levelOrderBottom
+> 返回二叉树从左至右从底至顶的层次遍历结果
+
+* 当前解法: 深度优先搜索先序遍历，递归解法
+  - levelorder的size小于当前level时，在levelorder中插入新的level
+  - levelorder中存在第level层时，直接在该层插入新的元素
+  - 逆序levelorder: `std::reverse`
+
+### problem108-sortedarraytoBST
+> 根据升序序列生成高度平衡的二叉搜索树
+
+* 当前解法: 递归，根据中序遍历序列恢复二叉树
+  - 选取数组中点作为根节点，以此保持二叉树的平衡性
+  - 根据根节点将输入序列分为左右子树
+  - 构建该节点的左右子树
