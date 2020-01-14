@@ -1,6 +1,6 @@
 /**
  *  @file    SortedarraytoBST.hpp
- *  @brief   LeetCode problems 108: build binary balanced search tree
+ *  @brief   LeetCode problems 108: build binary balanced search tree with sorted array
  *  @author  ppeng
  *  @date    2020-01-11
  */
