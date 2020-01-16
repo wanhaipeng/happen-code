@@ -26,6 +26,10 @@
     * [problem110-isBalanced](#problem110-isBalanced)
     * [problem111-minDepth](#problem111-minDepth)
     * [problem112-hasPathSum](#problem112-hasPathSum)
+    * [problem113-PathSum](#problem113-PathSum)
+    * [problem114-flatten](#problem114-flatten)
+    * [problem116-Connect](#problem116-Connect)
+
 
 ## 动态规划
 > 动态规划（英语：Dynamic programming，简称 DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。动态规划常常适用于有重叠子问题和最优子结构性质的问题，动态规划方法所耗时间往往远少于朴素解法。动态规划背后的基本思想非常简单。大致上，若要解一个给定问题，我们需要解其不同部分（即子问题），再根据子问题的解以得出原问题的解。通常许多子问题非常相似，为此动态规划法试图仅仅解决每个子问题一次，从而减少计算量：一旦某个给定子问题的解已经算出，则将其记忆化存储，以便下次需要同一个子问题解之时直接查表。这种做法在重复子问题的数目关于输入的规模呈指数增长时特别有用。
@@ -216,4 +220,12 @@
 ### problem114-flatten
 > 给定一个二叉树将其展开为链表
 
-* 当前解法: BFS
+* 当前解法: BFS递归遍历
+  - BFS顺序将节点放入队列`queue`，取出队列头部节点修改其`right`
+  - 当前节点右子树指向下一个节点，左子树置空
+
+### problem116-Connect
+> 填充完美二叉树节点的next指针，使其指向下一个右侧节点
+
+* 当前解放：BFS递归遍历
+  - BFS遍历节点压入队列中，当节点`idx=2^n - 1`时其next指针为`NULL`，其余都指向下一个右侧节点
